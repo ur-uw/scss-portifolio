@@ -157,6 +157,32 @@ color: #ffffff;
     background: lighten($color: $primary-color, $amount: 50);
     color: #333333;
 }
+
+//contact page 
+.boxes{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-top: 1rem;
+    div{
+        font-size: 2rem;
+        border: 3px solid white;
+        padding: 1.5rem 2.5rem;
+        margin-bottom: 3rem;
+        @include ease-out;
+        &:hover{
+            padding: 0.5rem 1.5rem;
+            background: $secondary-color;
+            color: set-text-color($secondary-color);
+            span{
+                color: set-text-color($secondary-color);
+            }
+        }
+    }
+}
+
+
 #main-footer{
     text-align:center;
     padding: 1rem;
