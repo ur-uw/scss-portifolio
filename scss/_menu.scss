@@ -11,7 +11,7 @@
         width: 28px;
         height: 3px;
         margin: 0 0 5px 0;
-        background: set-text-color($primary-color);
+        background: white;
         @include ease-out;
     }
 
@@ -33,7 +33,7 @@
 
             // Line 3 - Rotate
             &:nth-child(3) {
-                transform: rotate(-45deg) translate(7px, -6px);
+                transform: rotate(-45deg) translate(6px, -6px);
             }
         }
     }
@@ -75,5 +75,59 @@
             // Slide in from top
             transform: translate3d(0, 0, 0);
         }
+    }
+
+    //Branding
+    &-branding {
+        background: $primary-color;
+        transform: translate3d(0, 100%, 0);
+        @include ease-out;
+
+        &.show {
+            // Slide in from bottom
+            transform: translate3d(0, 0, 0);
+        }
+        .portrait{
+            width: 250px;
+            height: 250px;
+            background: url('../img/portrait.jpg');
+            border-radius: 50%;
+            border: 3px solid $secondary-color;
+        }
+    }
+    .nav-item{
+        transform: translate3d(600px,0,0);
+        @include ease-out;
+        &.show{
+            transform: translate3d(0,0,0);
+        }
+        &.current>a {
+            color: $secondary-color;
+        }
+    }
+    .nav-link{
+        display: inline-block;
+        position: relative;
+        font-size: 30px;
+        text-transform: uppercase;
+        padding: 1rem 0;
+        font-weight: 300;
+        color: white;
+        text-decoration: none;
+        @include ease-out;
+        &:hover{
+            color: $secondary-color;
+            @include ease-out;
+        }
+        
+    }
+}
+
+
+//delay each nav-item slide by 0.1s
+
+@for $x from 1 through 4 {
+    .nav-item:nth-child(#{$x}){
+        transition-delay: $x*0.1s;
     }
 }
