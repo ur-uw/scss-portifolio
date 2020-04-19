@@ -1,4 +1,4 @@
-@import 'config';
+@import 'config','menu';
 * {
     box-sizing: border-box;
 }
@@ -40,6 +40,7 @@ a {
 
 header {
     position: fixed;
+    width: 100%;
 
     ul {
         list-style-type: none;
