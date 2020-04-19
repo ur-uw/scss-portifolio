@@ -1,5 +1,6 @@
 .menu-btn {
   position: absolute;
+  z-index: 3;
   right: 35px;
   top: 35px;
   cursor: pointer;
@@ -7,8 +8,8 @@
   .menu-btn .btn-line {
     width: 28px;
     height: 3px;
-    background: white;
     margin: 0 0 5px 0;
+    background: set-text-color(#444);
     transition: all 0.5s ease-out; }
   .menu-btn.close {
     transform: rotate(180deg); }
@@ -17,27 +18,54 @@
     .menu-btn.close .btn-line:nth-child(2) {
       opacity: 0; }
     .menu-btn.close .btn-line:nth-child(3) {
-      transform: rotate(-45deg) translate(6px, -6px); }
+      transform: rotate(-45deg) translate(7px, -6px); }
+
+.menu {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  opacity: 0.9;
+  visibility: hidden; }
+  .menu.show {
+    visibility: visible; }
+  .menu-branding, .menu-nav {
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+    justify-content: center;
+    float: left;
+    width: 50%;
+    height: 100vh;
+    overflow: hidden; }
+  .menu-nav {
+    margin: 0;
+    padding: 0;
+    background: #373737;
+    list-style: none;
+    transform: translate3d(0, -100%, 0);
+    transition: all 0.5s ease-out; }
+    .menu-nav.show {
+      transform: translate3d(0, 0, 0); }
 
 * {
   box-sizing: border-box; }
 
 body {
+  background: #444;
+  color: set-text-color(#444);
   height: 100%;
   margin: 0;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  line-height: 1.5;
-  background-color: #444;
-  color: white; }
+  line-height: 1.5; }
   body#bg-img {
     background: url("../img/background.jpg");
-    background-size: cover;
-    background-attachment: fixed; }
-    body#bg-img::after {
+    background-attachment: fixed;
+    background-size: cover; }
+    body#bg-img:after {
       content: '';
       position: absolute;
-      top: 0%;
-      right: 0%;
+      top: 0;
+      right: 0;
       width: 100%;
       height: 100%;
       z-index: -1;
@@ -56,32 +84,31 @@ h3 {
   h2.sm-heading,
   h3.sm-heading {
     margin-bottom: 2rem;
-    padding: 0.2rem 1rem; }
+    padding: 0.2rem 1rem;
+    background: rgba(73, 73, 73, 0.5); }
+
+a {
+  color: #fff;
+  text-decoration: none; }
+
+header {
+  position: fixed;
+  z-index: 2;
+  width: 100%; }
 
 .text-secondary {
   color: #eece1a; }
 
-a {
-  text-decoration: none;
-  color: white; }
-
-header {
-  position: fixed;
-  width: 100%; }
-  header ul {
-    list-style-type: none; }
-
 main {
   padding: 4rem;
-  height: 100%; }
+  min-height: calc(100vh - 60px); }
   main .icons {
-    margin-top: 1rem;
-    padding: 1rem; }
+    margin-top: 1rem; }
     main .icons a {
-      padding: 0.4rem; }
+      padding: 0.4rem;
+      transition: all 0.5s ease-out; }
       main .icons a:hover {
-        color: #eece1a;
-        transition: all 0.5s ease-out; }
+        color: #eece1a; }
   main#home {
     overflow: hidden; }
     main#home h1 {
