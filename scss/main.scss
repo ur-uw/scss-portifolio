@@ -1,5 +1,71 @@
-$primary-color:#444;
-body{
+@import 'config';
+* {
+    box-sizing: border-box;
+}
+
+body {
+    @include background();
+    height: 100%;
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.5;
     background-color: $primary-color;
     color: white;
+}
+
+//headings
+h1,
+h2,
+h3 {
+    margin: 0;
+    font-weight: 400;
+
+    &.lg-heading {
+        font-size: 6rem;
+    }
+
+    &.sm-heading {
+        margin-bottom: 2rem;
+        padding: 0.2rem 1rem;
+    }
+}
+.text-secondary{
+    color: $secondary-color;
+}
+//links
+a {
+    text-decoration: none;
+    color: white;
+}
+
+header {
+    position: fixed;
+
+    ul {
+        list-style-type: none;
+    }
+}
+
+main {
+    padding: 4rem;
+    height: 100%;
+    .icons {
+        margin-top: 1rem;
+        padding: 1rem;
+
+        a {
+            padding: 0.4rem;
+
+            &:hover {
+                color: $secondary-color;
+                @include ease-out();
+            }
+        }
+    }
+    &#home{
+        overflow: hidden;
+        h1{
+            margin-top: 20vh;
+        }
+    }
 }
